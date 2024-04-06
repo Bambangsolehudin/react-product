@@ -205,6 +205,8 @@ function Home() {
                 <input type="number" onChange={e => setprice(e.target.value)} class="form-control" placeholder='price' />
                 <input type="text" onChange={e => setdescription(e.target.value)} class="form-control" placeholder='Description' />
                 <input type="number" onChange={e => setcategoryId(e.target.value)} class="form-control" placeholder='CategoryId' />
+                
+                
                 <input type="text" onChange={e => setimages(e.target.value)} class="form-control" placeholder='images .. Link' />
                 <button type="submit" class="btn btn-primary btn-sm mt-4" onClick={handleSubmit}>Add Product</button>
               </div>
@@ -221,10 +223,10 @@ function Home() {
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
                     <th scope="col">Action</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -235,6 +237,9 @@ function Home() {
                       return (<tr key={i}>
                         <th scope="row">{i+1}</th>
                         <td>{p.title}</td>
+                        <td>
+                          <img src={p.images[0]} alt="" srcset="" />
+                        </td>
                         <td>{p.description}</td>
                         <td>
                           {p.price} $
