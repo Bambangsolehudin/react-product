@@ -5,7 +5,6 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import LoginPage from './pages/Login.jsx';
 import Errorpage from './pages/404.jsx';
 import Home from './pages/home.jsx';
 
@@ -19,16 +18,7 @@ const router = createBrowserRouter([
     element:<Home />,
     // errorElement: <Errorpage />
   },
-  {
-    path: "/detail/:id",
-    element:<LoginPage />,
-    // errorElement: <Errorpage />
-  },
-  {
-    path: "/register",
-    element:<LoginPage />,
-    // errorElement: <Errorpage />
-  }
+
 ])
 
 

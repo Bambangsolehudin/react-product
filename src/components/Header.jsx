@@ -19,8 +19,7 @@ function Header() {
         <nav className="navbar navbar-expand-lg navbar-light bg-dark text-white ">
             <div className="container-fluid p-2">
               <div className='flex'>
-              <Link className="nav-link active mx-2 hover:bg-sky-700 hover:px-1" to="/">Home</Link>
-              <Link className="nav-link active mx-2 hover:bg-sky-700 hover:px-1"  to="/">About</Link>
+              <Link className="nav-link active mx-2 hover:bg-sky-700 hover:px-1" to="/">Products Page</Link>
               </div>
             </div>
           </nav>
