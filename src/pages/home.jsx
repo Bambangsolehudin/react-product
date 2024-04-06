@@ -56,9 +56,9 @@ function Home() {
       }).catch(err => {
         console.log(err);
         Swal.fire({
-          title: "Good job!",
+          title: "Oops !!",
+          icon: "error",
           text: err.response.data.message,
-          icon: "success"
         });
       })
     };
@@ -91,9 +91,9 @@ function Home() {
     }).catch(err => {
       console.log(err);
       Swal.fire({
-        title: "Good job!",
+        title: "Oops !!",
+        icon: "error",
         text: err.response.data.message,
-        icon: "success"
       });
     })
   }
@@ -121,9 +121,9 @@ function Home() {
     }).catch(err => {
       console.log(err);
       Swal.fire({
-        title: "Good job!",
+        title: "Oops !!",
+        icon: "error",
         text: err.response.data.message,
-        icon: "success"
       });
     })
   }
@@ -146,9 +146,9 @@ function Home() {
     }).catch(err => {
       console.log(err);
       Swal.fire({
-        title: "Good job!",
+        title: "Oops !!",
+        icon: "error",
         text: err.response.data.message,
-        icon: "success"
       });
     })
   }
@@ -194,15 +194,11 @@ function Home() {
     }).catch(err => {
       console.log(err);
       Swal.fire({
-        title: "Good job!",
+        title: "Oops !!",
+        icon: "error",
         text: err.response.data.message,
-        icon: "success"
       });
     })
-
-    
-
-   
   }
 
 
