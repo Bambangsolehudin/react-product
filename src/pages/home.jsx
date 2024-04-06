@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import Form from 'react-bootstrap/Form';
 
 
 import Header from '../components/Header'
@@ -30,12 +31,15 @@ function Home() {
   // Use Effect
   useEffect(() => {
     getProduct()
+    getCategory()
   }, []);
 
 
 
  
   const [products, setProducts] = useState('')
+  const [categories, setCategories] = useState('')
+
   const [title, setTitle] = useState('')
   const [price, setprice] = useState('')
   const [description, setdescription] = useState('')
@@ -46,10 +50,28 @@ function Home() {
 
 
  // Function
+
     const getProduct = () => {
       axios.get(`https://api.escuelajs.co/api/v1/products?offset=${paginate}&limit=10`)
       .then((res) => {
         setProducts( res.data)
+
+        // $('#table-data').DataTable();
+        console.log(res.data);
+      }).catch(err => {
+        console.log(err);
+        Swal.fire({
+          title: "Oops !!",
+          icon: "error",
+          text: err.response.data.message,
+        });
+      })
+    };
+
+    const getCategory = () => {
+      axios.get(`https://api.escuelajs.co/api/v1/categories`)
+      .then((res) => {
+        setCategories( res.data)
 
         // $('#table-data').DataTable();
         console.log(res.data);
@@ -233,7 +255,18 @@ function Home() {
                 <input type="text" onChange={e => setTitle(e.target.value)} class="form-control" placeholder='Title' />
                 <input type="number" onChange={e => setprice(e.target.value)} class="form-control" placeholder='price' />
                 <input type="text" onChange={e => setdescription(e.target.value)} class="form-control" placeholder='Description' />
-                <input type="number" onChange={e => setcategoryId(e.target.value)} class="form-control" placeholder='CategoryId' />
+                {/* <input type="number" onChange={e => setcategoryId(e.target.value)} class="form-control" placeholder='CategoryId' /> */}
+
+                <select class="form-select" aria-label="Default select example" onChange={e => setcategoryId(e.target.value)}>
+                  <option selected >Categori</option>
+                  {
+                    categories && categories.length>0 &&
+                    categories.map((e) => {
+                        return<option value={e.id} key={e.id}>{e.name}</option>
+                    })
+                  }
+                </select>
+               
                 
                 
                 <input type="text" onChange={e => setimages(e.target.value)} class="form-control" placeholder='images .. Link' />
