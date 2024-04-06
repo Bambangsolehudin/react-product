@@ -55,6 +55,11 @@ function Home() {
         console.log(res.data);
       }).catch(err => {
         console.log(err);
+        Swal.fire({
+          title: "Good job!",
+          text: err.response.data.message,
+          icon: "success"
+        });
       })
     };
 
@@ -85,6 +90,11 @@ function Home() {
       getProduct()
     }).catch(err => {
       console.log(err);
+      Swal.fire({
+        title: "Good job!",
+        text: err.response.data.message,
+        icon: "success"
+      });
     })
   }
   const handleUpdateProduct = (event) => {
@@ -110,6 +120,11 @@ function Home() {
       })
     }).catch(err => {
       console.log(err);
+      Swal.fire({
+        title: "Good job!",
+        text: err.response.data.message,
+        icon: "success"
+      });
     })
   }
 
@@ -130,6 +145,11 @@ function Home() {
       getProduct()
     }).catch(err => {
       console.log(err);
+      Swal.fire({
+        title: "Good job!",
+        text: err.response.data.message,
+        icon: "success"
+      });
     })
   }
 
@@ -161,10 +181,23 @@ function Home() {
       })
       setProducts(datas)
 
+      if(res.data.length < 1){
+        Swal.fire({
+          title: "Good job!",
+          text: "That's All",
+          icon: "success"
+        });
+      }
+
       // $('#table-data').DataTable();
       console.log(res.data);
     }).catch(err => {
       console.log(err);
+      Swal.fire({
+        title: "Good job!",
+        text: err.response.data.message,
+        icon: "success"
+      });
     })
 
     
